@@ -36,7 +36,7 @@ router.put(
   newTaskParser,
   async (
     req: Request<{ id: string }, unknown, NewTaskEntry>,
-    res,
+    res: Response<TaskEntry>,
     next: NextFunction
   ) => {
     const { id: taskId } = req.params;

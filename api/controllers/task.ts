@@ -50,4 +50,18 @@ router.put(
   }
 );
 
+router.delete(
+  '/:id',
+  async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+    const { id: taskId } = req.params;
+    const deletedTask = await tasksService.deleteTask(taskId);
+
+    if (deletedTask) {
+      res.status(204).end();
+    } else {
+      next({ message: `Resource with an id ${taskId} doesn't exists` });
+    }
+  }
+);
+
 export default router;

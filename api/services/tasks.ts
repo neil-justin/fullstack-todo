@@ -18,7 +18,13 @@ const modifyTask = async (
   return updatedTask;
 };
 
+const deleteTask = async (id: string): Promise<TaskEntry | null> => {
+  const deletedTask = await Task.findByIdAndDelete(id);
+  return deletedTask;
+};
+
 export default {
   addTask,
   modifyTask,
+  deleteTask,
 };

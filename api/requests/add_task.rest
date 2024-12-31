@@ -2,7 +2,7 @@ POST http://localhost:3000/api/tasks/
 Content-Type: application/json
 
 {
-  "task": "Build a fullstack todo app",
+  "task": "Build a fullstack todo app 3",
   "description": "Build a fullstack todo app for practice",
   "dueDate": "2025-01-10"
 }

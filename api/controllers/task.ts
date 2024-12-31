@@ -26,8 +26,8 @@ router.post(
     req: Request<unknown, unknown, NewTaskEntry>,
     res: Response<TaskEntry>
   ) => {
-    console.log('req.body', req.body);
     const addedTask = await tasksService.addTask(req.body);
+    res.json(addedTask);
   }
 );
 

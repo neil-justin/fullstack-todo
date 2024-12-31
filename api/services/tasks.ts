@@ -8,6 +8,17 @@ const addTask = async (task: NewTaskEntry): Promise<TaskEntry> => {
   return savedTask;
 };
 
+const modifyTask = async (
+  id: string,
+  updatedBody: NewTaskEntry
+): Promise<TaskEntry | null> => {
+  const updatedTask = await Task.findByIdAndUpdate(id, updatedBody, {
+    new: true,
+  });
+  return updatedTask;
+};
+
 export default {
   addTask,
+  modifyTask,
 };

@@ -31,4 +31,23 @@ router.post(
   }
 );
 
+router.put(
+  '/:id',
+  newTaskParser,
+  async (
+    req: Request<{ id: string }, unknown, NewTaskEntry>,
+    res,
+    next: NextFunction
+  ) => {
+    const { id: taskId } = req.params;
+    const updatedTask = await tasksService.modifyTask(taskId, req.body);
+
+    if (updatedTask) {
+      res.json(updatedTask);
+    } else {
+      next({ message: `Resource with an id ${taskId} doesn't exists` });
+    }
+  }
+);
+
 export default router;

@@ -1,0 +1,7 @@
+PUT http://localhost:3000/api/tasks/17738d09911d1cf84b511129
+Content-Type: application/json
+
+{
+  "task": "Learn C# on Udemy",
+  "dueDate": "2025-01-12"
+}

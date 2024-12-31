@@ -1,4 +1,5 @@
 import express, { NextFunction, Response, Request } from 'express';
+import { MongooseError } from 'mongoose';
 import { z } from 'zod';
 
 const errorHandler = (
@@ -9,8 +10,10 @@ const errorHandler = (
 ) => {
   if (error instanceof z.ZodError) {
     res.status(400).send({ error: error.issues });
+  } else if (error instanceof MongooseError) {
+    res.status(400).send({ error: error.message });
   } else {
-    next(error);
+    res.status(400).send({ error });
   }
 };
 

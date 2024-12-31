@@ -1,0 +1,15 @@
+import Task from '../models/task';
+import { NewTaskEntry, TaskEntry } from '../types';
+
+const addTask = async (task: NewTaskEntry): Promise<TaskEntry> => {
+  // const savedTask = (await new Task(task).save()) as TaskEntry;
+  // return savedTask;
+  const newTask = new Task(task);
+  const savedTask = (await newTask.save()) as TaskEntry;
+
+  return savedTask;
+};
+
+export default {
+  addTask,
+};

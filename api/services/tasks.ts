@@ -1,6 +1,10 @@
 import Task from '../models/task';
 import { NewTaskEntry, TaskEntry } from '../types';
 
+const getAllTasks = async (): Promise<TaskEntry[]> => {
+  return await Task.find({});
+};
+
 const addTask = async (task: NewTaskEntry): Promise<TaskEntry> => {
   const newTask = new Task(task);
   const savedTask = (await newTask.save()) as TaskEntry;
@@ -24,6 +28,7 @@ const deleteTask = async (id: string): Promise<TaskEntry | null> => {
 };
 
 export default {
+  getAllTasks,
   addTask,
   modifyTask,
   deleteTask,

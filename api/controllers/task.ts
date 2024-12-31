@@ -6,8 +6,14 @@ import { NewTaskEntry, TaskEntry } from '../types';
 
 const router = express.Router();
 
-router.get('/', (_req, res: Response<string>) => {
-  res.send('/api/tasks');
+router.get('/', async (req: Request, res: Response) => {
+  const tasks = await tasksService.getAllTasks();
+  
+  if (tasks.length >= 1) {
+    res.json(tasks);
+  } else {
+    res.send('<p>There are no tasks at the moment</p>');
+  }
 });
 
 const newTaskParser = (req: Request, res: Response, next: NextFunction) => {

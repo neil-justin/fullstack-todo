@@ -27,4 +27,8 @@ const modifyUser = async (
   });
 };
 
-export default { createUser, modifyUser };
+const deleteUser = async (id: string): Promise<UserEntry | null> => {
+  return await User.findByIdAndDelete(id);
+};
+
+export default { createUser, modifyUser, deleteUser };

@@ -38,3 +38,7 @@ test('returned a modified user json', async () => {
     .expect(200)
     .expect('Content-Type', /application\/json/);
 });
+
+test('deletion returned status code 204', async () => {
+  await api.delete('/api/users/677647e9702b042eaa83e532').expect(204);
+});

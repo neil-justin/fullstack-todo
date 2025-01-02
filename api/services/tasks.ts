@@ -1,5 +1,5 @@
-import Task from '../models/task';
-import { NewTaskEntry, TaskEntry } from '../types';
+import Task from '../models/task.ts';
+import { NewTaskEntry, TaskEntry } from '../types.ts';
 
 const getAllTasks = async (): Promise<TaskEntry[]> => {
   return await Task.find({});

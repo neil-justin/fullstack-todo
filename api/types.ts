@@ -1,3 +1,5 @@
+import { string } from 'zod';
+
 interface NewTaskEntry {
   task: string;
   description?: string | null | undefined;
@@ -8,4 +10,19 @@ interface TaskEntry extends NewTaskEntry {
   id: string;
 }
 
-export { NewTaskEntry, TaskEntry };
+interface NewUserEntry {
+  username: string;
+  email: string;
+  password: string;
+}
+
+interface UserEntry extends Omit<NewUserEntry, 'password'> {
+  id?: string;
+  passwordHash: string;
+}
+
+interface NewUsernameEntry {
+  username: string;
+}
+
+export { NewTaskEntry, TaskEntry, NewUserEntry, UserEntry, NewUsernameEntry };

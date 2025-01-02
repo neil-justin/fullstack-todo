@@ -1,8 +1,8 @@
 import express, { NextFunction, Response, Request } from 'express';
 
-import tasksService from '../services/tasks';
-import { NewTaskSchema } from '../util/parser';
-import { NewTaskEntry, TaskEntry } from '../types';
+import tasksService from '../services/tasks.ts';
+import { NewTaskSchema } from '../util/parser.ts';
+import { NewTaskEntry, TaskEntry } from '../types.ts';
 
 const router = express.Router();
 

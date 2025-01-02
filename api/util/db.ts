@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { MONGODB_URL } from './config';
+import { MONGODB_URL } from './config.ts';
 
 const connectToDB = async () => {
   mongoose.set('strictQuery', false);
